@@ -113,9 +113,7 @@
 
 -(void)removeSymbolFromTape
 {
-    NSUInteger loc = [self.tape.text rangeOfString:@"="].location;
-    if (loc != NSNotFound) {
-        self.tape.text = [self.tape.text substringToIndex:loc];
-    }
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"="];
+    self.tape.text = [self.tape.text stringByTrimmingCharactersInSet:set];
 }
 @end
