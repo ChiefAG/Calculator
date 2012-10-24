@@ -142,11 +142,6 @@
     return @"yet to be implemented";
 }
 
-+ (NSSet *)supportedOperations
-{
-    return [NSSet setWithObjects:@"+", @"-", @"*", @"/", @"+/-", @"π", @"e", @"log", @"sqrt", @"cos", @"sin", nil];
-}
-
 +(BOOL)isOperation:(NSString *)variable
 {
     NSSet *operations = [NSSet setWithObjects:@"+", @"-", @"*", @"/", @"+/-", @"π", @"e", @"log", @"sqrt", @"cos", @"sin", nil];
