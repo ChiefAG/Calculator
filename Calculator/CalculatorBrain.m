@@ -42,6 +42,11 @@
     [self.programStack addObject:operandNumber];
 }
 
+- (void)pushOperation:(NSString *)variable
+{
+    [self.programStack addObject:variable];
+}
+
 - (double)performOperation:(NSString *)operation
 {
     [self.programStack addObject:operation];
@@ -91,15 +96,61 @@
 
 + (double)runProgram:(id)program
 {
+    return [self runProgram:program usingVariables:nil];
+}
+
++ (double)runProgram:(id)program usingVariables:(NSDictionary *)variableValues
+{
     NSMutableArray *stack;
     if ([ program isKindOfClass:[NSArray class]]) {
         stack = [program mutableCopy];
     }
+    
+    // replace variables in stack with values
+    for (int i = 0; i < [stack count]; i++) {
+        id obj = [stack objectAtIndex:i];
+        if ([obj isKindOfClass:[NSString class]] && ![self isOperation:obj]) {
+            id val = [variableValues valueForKey:obj];
+            if (!val) val = 0;
+            [stack replaceObjectAtIndex:i withObject:val];
+        }
+    }
+    
     return [self popOperandOffStack:stack];
+}
+
++ (NSSet *)variablesUsedInProgram:(id)program
+{
+    if (![program isKindOfClass:[NSArray class]])
+    {
+        return nil;
+    }
+    NSArray *stack = [program copy];
+    
+    NSMutableArray *variables = [[NSMutableArray alloc] initWithCapacity:5];
+    for (id obj in stack) {
+        if ([obj isKindOfClass:[NSString class]] && ![self isOperation:obj]) {
+            [variables addObject:obj];
+        }
+    }
+    
+    return [variables count] > 0 ? [NSSet setWithArray:variables] : nil;
 }
 
 + (NSString *)descriptionOfProgram:(id)program
 {
     return @"yet to be implemented";
 }
+
++ (NSSet *)supportedOperations
+{
+    return [NSSet setWithObjects:@"+", @"-", @"*", @"/", @"+/-", @"π", @"e", @"log", @"sqrt", @"cos", @"sin", nil];
+}
+
++(BOOL)isOperation:(NSString *)variable
+{
+    NSSet *operations = [NSSet setWithObjects:@"+", @"-", @"*", @"/", @"+/-", @"π", @"e", @"log", @"sqrt", @"cos", @"sin", nil];
+    return [operations containsObject:variable];
+}
+
 @end

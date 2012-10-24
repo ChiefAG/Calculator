@@ -52,4 +52,16 @@ CalculatorBrain *subject;
     STAssertEquals(11.0, result, @"Division operation failed");
 }
 
+- (void)testCanRunProgramWithVariables
+{
+    [subject pushOperand:55];
+    [subject pushOperation:@"A"];
+
+    NSDictionary *variables = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithDouble:5.0], @"A", nil];
+    
+    [subject pushOperation:@"+"];
+    double result = [CalculatorBrain runProgram:[subject program] usingVariables:variables];
+    STAssertEquals(60.0, result, @"Variable use failed");
+}
+
 @end
