@@ -137,15 +137,81 @@
     return [variables count] > 0 ? [NSSet setWithArray:variables] : nil;
 }
 
++ (NSString *)descriptionOfTopOfStack:(NSMutableArray *)stack
+{
+    NSString *description;
+    
+    id topOfStack = [stack lastObject];
+    if (topOfStack) {
+        [stack removeLastObject];
+    } else {
+        return @"";
+    }
+    
+    // when topOfStack is a number, return it
+    if ([topOfStack isKindOfClass:[NSNumber class]]) {
+        return [topOfStack description];
+    }
+    
+    if ([topOfStack isKindOfClass:[NSString class]]) {
+        if ([self isMultiOperandOperation:topOfStack])
+        {
+            NSString *operation = topOfStack;
+            NSString *rightSide = [self descriptionOfTopOfStack:stack];
+            NSString *leftSide = [self descriptionOfTopOfStack:stack];
+            
+            if ([leftSide rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"-+"]].length != 0)
+            {
+                leftSide = [NSString stringWithFormat:@"(%@)", leftSide];
+            }
+            if ([rightSide rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"-+"]].length != 0)
+            {
+                rightSide = [NSString stringWithFormat:@"(%@)", rightSide];
+            }
+            
+            description = [NSString stringWithFormat:@"%@ %@ %@", leftSide, operation, rightSide];
+        } else if ([self isSingleOperandOperation:topOfStack]) {
+            NSString *val = [self descriptionOfTopOfStack:stack];
+            description = [NSString stringWithFormat:@"%@(%@)", topOfStack, val];
+        } else {
+            description = topOfStack;
+        }
+    }
+    
+    return description;
+}
+
 + (NSString *)descriptionOfProgram:(id)program
 {
-    return @"yet to be implemented";
+    NSMutableArray *stack;
+    if ([program isKindOfClass:[NSArray class]]) {
+        stack = [program mutableCopy];
+    }
+    
+    NSMutableArray *expressions = [[NSMutableArray alloc] init];
+    
+    while (stack.count > 0) {
+        [expressions addObject:[self descriptionOfTopOfStack:stack]];
+    }
+    
+    return [expressions componentsJoinedByString:@", "];
 }
 
-+(BOOL)isOperation:(NSString *)variable
++ (BOOL)isOperation:(NSString *)variable
 {
-    NSSet *operations = [NSSet setWithObjects:@"+", @"-", @"*", @"/", @"+/-", @"π", @"e", @"log", @"sqrt", @"cos", @"sin", nil];
-    return [operations containsObject:variable];
+    NSSet *operations = [NSSet setWithObjects:@"π", @"e", nil];
+    return [operations containsObject:variable] || [self isSingleOperandOperation:variable] || [self isMultiOperandOperation:variable];
 }
 
++ (BOOL)isSingleOperandOperation:(NSString *)operation
+{
+    NSSet *operations = [NSSet setWithObjects:@"log", @"sqrt", @"cos", @"sin", nil];
+    return [operations containsObject:operation];
+}
+
++ (BOOL)isMultiOperandOperation:(NSString *)operation
+{
+    NSSet *operations = [NSSet setWithObjects:@"+", @"-", @"*", @"/", nil];
+    return [operations containsObject:operation];
+}
 @end
