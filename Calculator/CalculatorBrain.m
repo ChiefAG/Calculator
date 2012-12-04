@@ -49,7 +49,7 @@
 
 - (double)performOperation:(NSString *)operation
 {
-    [self.programStack addObject:operation];
+    [self pushOperation:operation];
     return [CalculatorBrain runProgram:self.program];
 }
 
@@ -111,7 +111,7 @@
         id obj = [stack objectAtIndex:i];
         if ([obj isKindOfClass:[NSString class]] && ![self isOperation:obj]) {
             id val = [variableValues valueForKey:obj];
-            if (!val) val = 0;
+            if (!val) val = [NSNumber numberWithFloat:0.0];
             [stack replaceObjectAtIndex:i withObject:val];
         }
     }

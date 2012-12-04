@@ -64,6 +64,12 @@ CalculatorBrain *subject;
     STAssertEquals(60.0, result, @"Variable use failed");
 }
 
+- (void)testRunProgramWithSingleVariable
+{
+    double result = [subject performOperation:@"x"];
+    STAssertEquals(0.0, result, @"result of single variable should be 0.0");
+}
+
 - (void)testDescriptionOfMultipleSeparatedByComma
 {
     [subject pushOperand:3];

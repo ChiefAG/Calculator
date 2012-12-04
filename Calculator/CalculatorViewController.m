@@ -8,6 +8,7 @@
 
 #import "CalculatorViewController.h"
 #import "CalculatorBrain.h"
+#import "GraphViewController.h"
 
 @interface CalculatorViewController ()
 @property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
@@ -27,6 +28,16 @@
         _brain = [[CalculatorBrain alloc] init];
     }
     return _brain;
+}
+
+- (IBAction)graphPressed
+{
+    [self performSegueWithIdentifier:@"ShowGraph" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [segue.destinationViewController setProgram:self.brain.program];
 }
 
 - (IBAction)digitPressed:(UIButton *)sender {
@@ -54,7 +65,8 @@
     }
 }
 
-- (IBAction)operationPressed:(UIButton *)sender {
+- (IBAction)operationPressed:(UIButton *)sender
+{
 
     // treat the sign change as a digit press when user is entering numbers.
     if ([sender.currentTitle isEqualToString:@"+/-"] && userIsInTheMiddleOfEnteringANumber) {
@@ -67,17 +79,16 @@
         [self enterPressed];
     }
     NSString *operation = sender.currentTitle;
-    [self addItemToTape:operation];
-    [self addSymbolToTape];
     double result = [self.brain performOperation:operation];
     self.display.text = [NSString stringWithFormat:@"%g", result];
+    self.tape.text = [CalculatorBrain descriptionOfProgram:self.brain.program];
 }
 
 - (IBAction)clearPressed
 {
     [self.brain clearAll];
     self.display.text = @"0";
-    self.tape.text = @"";
+    self.tape.text = [CalculatorBrain descriptionOfProgram:self.brain.program];
 }
 
 - (IBAction)backspacePressed {
@@ -94,26 +105,5 @@
 - (IBAction)enterPressed {
     [self.brain pushOperand:[self.display.text doubleValue]];
     self.userIsInTheMiddleOfEnteringANumber = NO;
-    [self addItemToTape:self.display.text];
-}
-
-- (void)addItemToTape:(NSString *)item
-{
-    [self removeSymbolFromTape];
-    if (self.tape.text.length != 0) {
-        self.tape.text = [self.tape.text stringByAppendingString:@" "];
-    }
-    self.tape.text = [self.tape.text stringByAppendingString:item];
-}
-
--(void)addSymbolToTape
-{
-    [self addItemToTape:@"="];
-}
-
--(void)removeSymbolFromTape
-{
-    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"="];
-    self.tape.text = [self.tape.text stringByTrimmingCharactersInSet:set];
 }
 @end

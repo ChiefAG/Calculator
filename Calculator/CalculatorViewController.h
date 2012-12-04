@@ -18,5 +18,5 @@
 - (IBAction)enterPressed;
 - (IBAction)clearPressed;
 - (IBAction)backspacePressed;
-
+- (IBAction)graphPressed;
 @end
