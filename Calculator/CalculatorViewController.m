@@ -32,7 +32,11 @@
 
 -(GraphViewController *)graphViewController
 {
-    return [self.splitViewController.viewControllers lastObject];
+    id vc = [self.splitViewController.viewControllers lastObject];
+    if (![vc isKindOfClass:[GraphViewController class]]) {
+        vc = nil;
+    }
+    return vc;
 }
 
 - (IBAction)graphPressed

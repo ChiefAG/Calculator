@@ -27,6 +27,7 @@
 - (void)setProgram:(id)program
 {
     _program = program;
+
     self.title = [NSString stringWithFormat:@"y = %@", [CalculatorBrain descriptionOfProgram:self.program]];
     [self restoreUserDefaults];
 }
