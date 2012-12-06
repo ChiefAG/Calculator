@@ -29,7 +29,7 @@
     _program = program;
 
     self.title = [NSString stringWithFormat:@"y = %@", [CalculatorBrain descriptionOfProgram:self.program]];
-    [self restoreUserDefaults];
+    [self setUserDefaults];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -105,10 +105,10 @@
     recognizer.numberOfTapsRequired = 3;
     [self.graphView addGestureRecognizer:recognizer];
     
-    [self restoreUserDefaults];
+    [self setUserDefaults];
 }
 
--(void)restoreUserDefaults
+-(void)setUserDefaults
 {
     if (!self.graphView) return;
 
