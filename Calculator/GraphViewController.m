@@ -13,6 +13,8 @@
 
 @property (nonatomic, weak) IBOutlet GraphView *graphView;
 @property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, weak) UIBarButtonItem *splitViewBarButtonItem;
+
 @end
 
 @implementation GraphViewController
@@ -20,6 +22,7 @@
 @synthesize program = _program;
 @synthesize graphView = _graphView;
 @synthesize toolbar = _toolbar;
+@synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 
 - (void)setProgram:(id)program
 {
@@ -57,19 +60,30 @@
       forPopoverController:(UIPopoverController *)pc
 {
     barButtonItem.title = @"Calculator";
+    [self setSplitViewBarButtonItem:barButtonItem];
+}
+
+-(void)setSplitViewBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    UIToolbar *toolbar = self.toolbar;
+    NSMutableArray *toolbarItems = [toolbar.items mutableCopy];
+    if (_splitViewBarButtonItem) {
+        [toolbarItems removeObject:_splitViewBarButtonItem];
+    }
     
-    NSMutableArray *toolbarItems = [self.toolbar.items mutableCopy];
-    [toolbarItems insertObject:barButtonItem atIndex:0];
-    self.toolbar.items = toolbarItems;
+    if (barButtonItem) {
+        [toolbarItems insertObject:barButtonItem atIndex:0];
+    }
+    
+    toolbar.items = toolbarItems;
+    _splitViewBarButtonItem = barButtonItem;
 }
 
 -(void)splitViewController:(UISplitViewController *)svc
     willShowViewController:(UIViewController *)aViewController
  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
-    NSMutableArray *toolbarItems = [self.toolbar.items mutableCopy];
-    [toolbarItems removeObjectAtIndex:0];
-    self.toolbar.items = toolbarItems;
+    [self setSplitViewBarButtonItem:barButtonItem];
 }
 
 - (void)didReceiveMemoryWarning
