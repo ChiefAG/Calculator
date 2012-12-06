@@ -12,6 +12,8 @@
 @protocol GraphViewDataSource <NSObject>
 
 -(float)yValueFor:(float)value inView:(GraphView *)sender;
+-(void)setScale:(CGFloat)scale inView:(GraphView *)sender;
+-(void)setOrigin:(CGPoint)origin inView:(GraphView *)sender;
 
 @end
 @interface GraphView : UIView

@@ -27,7 +27,7 @@
 {
     if (scale == _scale) return;
     _scale = scale;
-    
+    [self.datasource setScale:scale inView:self];
     [self setNeedsDisplay];
 }
 
@@ -35,9 +35,19 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self setup];
     }
     return self;
+}
+
+- (void)setup
+{
+    self.contentMode = UIViewContentModeRedraw;
+}
+
+- (void)awakeFromNib
+{
+    [self setup];
 }
 
 - (CGPoint)origin
@@ -54,7 +64,7 @@
 - (void)setOrigin:(CGPoint)origin
 {
     _origin = origin;
-    
+    [self.datasource setOrigin:origin inView:self];
     [self setNeedsDisplay];
 }
 

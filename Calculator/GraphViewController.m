@@ -23,8 +23,8 @@
 - (void)setProgram:(id)program
 {
     _program = program;
-    [self.graphView setNeedsDisplay];
-    self.title = [CalculatorBrain descriptionOfProgram:self.program];
+    self.title = [NSString stringWithFormat:@"y = %@", [CalculatorBrain descriptionOfProgram:self.program]];
+    [self restoreUserDefaults];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -60,12 +60,42 @@
     recognizer.numberOfTapsRequired = 3;
     [self.graphView addGestureRecognizer:recognizer];
     
+    [self restoreUserDefaults];
+}
+
+-(void)restoreUserDefaults
+{
+    if (!self.graphView) return;
+
+    float scale = [[NSUserDefaults standardUserDefaults] floatForKey:@"scale"];
+    float x = [[NSUserDefaults standardUserDefaults] floatForKey:@"x"];
+    float y = [[NSUserDefaults standardUserDefaults] floatForKey:@"y"];
+
+    if (scale) {
+        self.graphView.scale = scale;
+    }
+    if (x && y) {
+        CGPoint origin = CGPointMake(x, y);
+        self.graphView.origin = origin;
+    }
+    
     [self.graphView setNeedsDisplay];
 }
 
 - (float)yValueFor:(float)value inView:(GraphView *)sender
 {
     return [CalculatorBrain runProgram:self.program usingVariables:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:value] forKey:@"x"]];
+}
+
+- (void)setScale:(CGFloat)scale inView:(GraphView *)sender
+{
+    [[NSUserDefaults standardUserDefaults] setFloat:scale forKey:@"scale"];
+}
+
+- (void)setOrigin:(CGPoint)origin inView:(GraphView *)sender
+{
+    [[NSUserDefaults standardUserDefaults] setFloat:origin.x forKey:@"x"];
+    [[NSUserDefaults standardUserDefaults] setFloat:origin.y forKey:@"y"];
 }
 
 @end
