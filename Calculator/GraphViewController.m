@@ -9,16 +9,17 @@
 #import "GraphViewController.h"
 #import "CalculatorBrain.h"
 
-@interface GraphViewController ()
+@interface GraphViewController () <GraphViewDataSource>
 
 @property (nonatomic, weak) IBOutlet GraphView *graphView;
-
+@property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
 @end
 
 @implementation GraphViewController
 
 @synthesize program = _program;
 @synthesize graphView = _graphView;
+@synthesize toolbar = _toolbar;
 
 - (void)setProgram:(id)program
 {
@@ -39,7 +40,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.splitViewController.delegate = self;
+    self.splitViewController.presentsWithGesture = NO;
+}
+
+-(BOOL)splitViewController:(UISplitViewController *)svc
+  shouldHideViewController:(UIViewController *)vc
+             inOrientation:(UIInterfaceOrientation)orientation
+{
+    return UIInterfaceOrientationIsPortrait(orientation);
+}
+
+-(void)splitViewController:(UISplitViewController *)svc
+    willHideViewController:(UIViewController *)aViewController
+         withBarButtonItem:(UIBarButtonItem *)barButtonItem
+      forPopoverController:(UIPopoverController *)pc
+{
+    barButtonItem.title = @"Calculator";
+    
+    NSMutableArray *toolbarItems = [self.toolbar.items mutableCopy];
+    [toolbarItems insertObject:barButtonItem atIndex:0];
+    self.toolbar.items = toolbarItems;
+}
+
+-(void)splitViewController:(UISplitViewController *)svc
+    willShowViewController:(UIViewController *)aViewController
+ invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    NSMutableArray *toolbarItems = [self.toolbar.items mutableCopy];
+    [toolbarItems removeObjectAtIndex:0];
+    self.toolbar.items = toolbarItems;
 }
 
 - (void)didReceiveMemoryWarning

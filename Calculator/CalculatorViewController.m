@@ -30,9 +30,18 @@
     return _brain;
 }
 
+-(GraphViewController *)graphViewController
+{
+    return [self.splitViewController.viewControllers lastObject];
+}
+
 - (IBAction)graphPressed
 {
-    [self performSegueWithIdentifier:@"ShowGraph" sender:self];
+    if ([self graphViewController]) {
+        [[self graphViewController] setProgram:self.brain.program];
+    } else {
+        [self performSegueWithIdentifier:@"ShowGraph" sender:self];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

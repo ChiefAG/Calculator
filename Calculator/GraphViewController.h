@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GraphView.h"
 
-@interface GraphViewController : UIViewController <GraphViewDataSource>
+@interface GraphViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (nonatomic, strong) id program;
 
