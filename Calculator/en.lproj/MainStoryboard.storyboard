@@ -394,7 +394,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="RQa-T5-5ji" kind="push" identifier="ShowGraph" id="c27-rR-qiW"/>
+                                    <action selector="graphPressed" destination="2" eventType="touchUpInside" id="xdY-2o-keG"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3rL-D7-VzS">
@@ -411,6 +411,7 @@
                     <connections>
                         <outlet property="display" destination="nZJ-qe-tEW" id="2FY-ep-B0m"/>
                         <outlet property="tape" destination="3rL-D7-VzS" id="eU2-oN-gRa"/>
+                        <segue destination="RQa-T5-5ji" kind="push" identifier="ShowGraph" id="6HD-TS-1JW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
