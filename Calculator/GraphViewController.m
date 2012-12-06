@@ -51,7 +51,7 @@
   shouldHideViewController:(UIViewController *)vc
              inOrientation:(UIInterfaceOrientation)orientation
 {
-    return YES;
+    return UIInterfaceOrientationIsPortrait(orientation);
 }
 
 -(void)splitViewController:(UISplitViewController *)svc
@@ -83,7 +83,7 @@
     willShowViewController:(UIViewController *)aViewController
  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
-    [self setSplitViewBarButtonItem:barButtonItem];
+    [self setSplitViewBarButtonItem:nil];
 }
 
 - (void)didReceiveMemoryWarning
