@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F34BE691673B6AD00417485 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F34BE671673B6AD00417485 /* iPad.storyboard */; };
 		6F405BA7166D8F6D00771310 /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F405BA6166D8F6D00771310 /* AxesDrawer.m */; };
 		6F405BB4166D97D100771310 /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F405BB3166D97D100771310 /* GraphViewController.m */; };
 		6F405BB7166D9C9B00771310 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F405BB6166D9C9B00771310 /* GraphView.m */; };
@@ -28,7 +29,6 @@
 		6F7BDEA51627995B00F57B14 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F7BDEA31627995B00F57B14 /* InfoPlist.strings */; };
 		6F7BDEA81627995B00F57B14 /* CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7BDEA71627995B00F57B14 /* CalculatorTests.m */; };
 		6FB2C17C1633455B009C28CC /* CalculatorBrainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB2C17B1633455B009C28CC /* CalculatorBrainTests.m */; };
-		6FD246B41673B0FD00245DDB /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD246B61673B0FD00245DDB /* iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F34BE681673B6AD00417485 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
 		6F405BA5166D8F6D00771310 /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
 		6F405BA6166D8F6D00771310 /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
 		6F405BB2166D97D100771310 /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		6F7BDEA71627995B00F57B14 /* CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorTests.m; sourceTree = "<group>"; };
 		6FB2C17A1633455B009C28CC /* CalculatorBrainTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrainTests.h; sourceTree = "<group>"; };
 		6FB2C17B1633455B009C28CC /* CalculatorBrainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrainTests.m; sourceTree = "<group>"; };
-		6FD246B51673B0FD00245DDB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +134,8 @@
 		6F7BDE7C1627995A00F57B14 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				6F34BE671673B6AD00417485 /* iPad.storyboard */,
 				6F405BB2166D97D100771310 /* GraphViewController.h */,
-				6FD246B61673B0FD00245DDB /* iPad.storyboard */,
 				6F405BB3166D97D100771310 /* GraphViewController.m */,
 				6F43B4211627AF6B002F65C7 /* CalculatorBrain.h */,
 				6F43B4221627AF6B002F65C7 /* CalculatorBrain.m */,
@@ -265,7 +265,7 @@
 				6F7BDE8B1627995B00F57B14 /* Default@2x.png in Resources */,
 				6F7BDE8D1627995B00F57B14 /* Default-568h@2x.png in Resources */,
 				6F7BDE901627995B00F57B14 /* iPhone.storyboard in Resources */,
-				6FD246B41673B0FD00245DDB /* iPad.storyboard in Resources */,
+				6F34BE691673B6AD00417485 /* iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +330,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6F34BE671673B6AD00417485 /* iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F34BE681673B6AD00417485 /* en */,
+			);
+			name = iPad.storyboard;
+			sourceTree = "<group>";
+		};
 		6F7BDE7F1627995A00F57B14 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -352,14 +360,6 @@
 				6F7BDEA41627995B00F57B14 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6FD246B61673B0FD00245DDB /* iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6FD246B51673B0FD00245DDB /* en */,
-			);
-			name = iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
