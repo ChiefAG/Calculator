@@ -14,7 +14,7 @@
 @property (nonatomic, weak) IBOutlet GraphView *graphView;
 @property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
 @property (nonatomic, weak) UIBarButtonItem *splitViewBarButtonItem;
-
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *titleButton;
 @end
 
 @implementation GraphViewController
@@ -28,7 +28,7 @@
 {
     _program = program;
 
-    self.title = [NSString stringWithFormat:@"y = %@", [CalculatorBrain descriptionOfProgram:self.program]];
+    self.titleButton.title = [NSString stringWithFormat:@"y = %@", [CalculatorBrain descriptionOfProgram:self.program]];
     [self setUserDefaults];
 }
 

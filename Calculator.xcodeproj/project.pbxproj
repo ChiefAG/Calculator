@@ -27,8 +27,8 @@
 		6F7BDE9D1627995B00F57B14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7BDE781627995A00F57B14 /* Foundation.framework */; };
 		6F7BDEA51627995B00F57B14 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F7BDEA31627995B00F57B14 /* InfoPlist.strings */; };
 		6F7BDEA81627995B00F57B14 /* CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7BDEA71627995B00F57B14 /* CalculatorTests.m */; };
-		6F97B9A0167044560063C292 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F97B99F167044560063C292 /* iPad.storyboard */; };
 		6FB2C17C1633455B009C28CC /* CalculatorBrainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB2C17B1633455B009C28CC /* CalculatorBrainTests.m */; };
+		6FD246B41673B0FD00245DDB /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD246B61673B0FD00245DDB /* iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,9 +72,9 @@
 		6F7BDEA41627995B00F57B14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6F7BDEA61627995B00F57B14 /* CalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorTests.h; sourceTree = "<group>"; };
 		6F7BDEA71627995B00F57B14 /* CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorTests.m; sourceTree = "<group>"; };
-		6F97B99F167044560063C292 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		6FB2C17A1633455B009C28CC /* CalculatorBrainTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrainTests.h; sourceTree = "<group>"; };
 		6FB2C17B1633455B009C28CC /* CalculatorBrainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrainTests.m; sourceTree = "<group>"; };
+		6FD246B51673B0FD00245DDB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				6F405BB2166D97D100771310 /* GraphViewController.h */,
-				6F97B99F167044560063C292 /* iPad.storyboard */,
+				6FD246B61673B0FD00245DDB /* iPad.storyboard */,
 				6F405BB3166D97D100771310 /* GraphViewController.m */,
 				6F43B4211627AF6B002F65C7 /* CalculatorBrain.h */,
 				6F43B4221627AF6B002F65C7 /* CalculatorBrain.m */,
@@ -265,7 +265,7 @@
 				6F7BDE8B1627995B00F57B14 /* Default@2x.png in Resources */,
 				6F7BDE8D1627995B00F57B14 /* Default-568h@2x.png in Resources */,
 				6F7BDE901627995B00F57B14 /* iPhone.storyboard in Resources */,
-				6F97B9A0167044560063C292 /* iPad.storyboard in Resources */,
+				6FD246B41673B0FD00245DDB /* iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +352,14 @@
 				6F7BDEA41627995B00F57B14 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6FD246B61673B0FD00245DDB /* iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6FD246B51673B0FD00245DDB /* en */,
+			);
+			name = iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
