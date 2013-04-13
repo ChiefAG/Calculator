@@ -51,7 +51,7 @@
 		6F405BB6166D9C9B00771310 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		6F43B4211627AF6B002F65C7 /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
 		6F43B4221627AF6B002F65C7 /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
-		6F7BDE721627995A00F57B14 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F7BDE721627995A00F57B14 /* calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F7BDE761627995A00F57B14 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F7BDE781627995A00F57B14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6F7BDE7A1627995A00F57B14 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -114,7 +114,7 @@
 		6F7BDE731627995A00F57B14 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6F7BDE721627995A00F57B14 /* Calculator.app */,
+				6F7BDE721627995A00F57B14 /* calculator.app */,
 				6F7BDE991627995B00F57B14 /* CalculatorTests.octest */,
 			);
 			name = Products;
@@ -191,9 +191,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6F7BDE711627995A00F57B14 /* Calculator */ = {
+		6F7BDE711627995A00F57B14 /* calculator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F7BDEAB1627995B00F57B14 /* Build configuration list for PBXNativeTarget "Calculator" */;
+			buildConfigurationList = 6F7BDEAB1627995B00F57B14 /* Build configuration list for PBXNativeTarget "calculator" */;
 			buildPhases = (
 				6F7BDE6E1627995A00F57B14 /* Sources */,
 				6F7BDE6F1627995A00F57B14 /* Frameworks */,
@@ -203,9 +203,9 @@
 			);
 			dependencies = (
 			);
-			name = Calculator;
+			name = calculator;
 			productName = Calculator;
-			productReference = 6F7BDE721627995A00F57B14 /* Calculator.app */;
+			productReference = 6F7BDE721627995A00F57B14 /* calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6F7BDE981627995B00F57B14 /* CalculatorTests */ = {
@@ -249,7 +249,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6F7BDE711627995A00F57B14 /* Calculator */,
+				6F7BDE711627995A00F57B14 /* calculator */,
 				6F7BDE981627995B00F57B14 /* CalculatorTests */,
 			);
 		};
@@ -324,7 +324,7 @@
 /* Begin PBXTargetDependency section */
 		6F7BDE9F1627995B00F57B14 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6F7BDE711627995A00F57B14 /* Calculator */;
+			target = 6F7BDE711627995A00F57B14 /* calculator */;
 			targetProxy = 6F7BDE9E1627995B00F57B14 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -487,7 +487,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F7BDEAB1627995B00F57B14 /* Build configuration list for PBXNativeTarget "Calculator" */ = {
+		6F7BDEAB1627995B00F57B14 /* Build configuration list for PBXNativeTarget "calculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F7BDEAC1627995B00F57B14 /* Debug */,
